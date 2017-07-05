@@ -35,10 +35,10 @@ public class ReleasesAdapter {
 
 	static AmazonSimpleDBClient simpleDB;
 	static String releasesDomainName = "releases";
-	static String releasesXMLFile = "C:\\Users\\maurizio\\Desktop\\discogs_20150601_releases.xml";
+	static String releasesXMLFile = "";
 
 	static boolean debugReleases = false;
-	static String releasesS3File = "C:\\Users\\maurizio\\Desktop\\Chunks\\releasesS3";
+	static String releasesS3File = "";
 	static BufferedWriter bw;
 	static int chunk = 1;
 	static int count = 0;
@@ -49,11 +49,11 @@ public class ReleasesAdapter {
 	private static void init() throws Exception {
 		AWSCredentials credentials = null;
 		try {
-			credentials = new ProfileCredentialsProvider("Mauri").getCredentials();
+			credentials = new ProfileCredentialsProvider("").getCredentials();
 		} catch (Exception e) {
 			throw new AmazonClientException("Cannot load the credentials from the credential profiles file. "
 					+ "Please make sure that your credentials file is at the correct "
-					+ "location (C:\\Users\\Mauri\\.aws\\credentials), and is in valid format.", e);
+					+ "location (), and is in valid format.", e);
 		}
 		simpleDB = new AmazonSimpleDBClient(credentials);
 		Region usWest2 = Region.getRegion(Regions.US_WEST_2);

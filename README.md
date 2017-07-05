@@ -1,5 +1,13 @@
-# Multicast Routing for Wireless Sensor Networks
+# Discogs Music Database Management via Amazon Web Services
 
-Multicast routing is one of the most active research area in Wireless Sensor Networks. There are many applications in which one to many dissemination is very important, e.g., in a fire handling system, the actuators need to turn on the water sprinklers on receiving a fire report.
+This project consists in the development of a set of services meant for the management of Discogs music database (Big Data). Discogs is a website about audio recordings, which includes both commercial and off-label releases, and it is especially known as the largest online database of electronic music releases, in particular on vinyl media. In 2007, Discogs data became publicly accessible via a REST-ful XML-based API. Since then, monthly data dumps are provided in XML format (https://data.discogs.com).
 
-Developed for TinyOS: an embedded, component-based operating system and platform for low-power wireless devices (e.g. http://zolertia.io).
+## Project Structure 
+
+* XMLtoSimpleDBAdapter: parses artists.xml and releases.xml in order to discard irrelevant or redundant information; cleaned results are converted into key-value pairs and inserted into Amazon SimpleDB domains;
+* XMLtoDynamoDBAdapter: same as above; cleaned results are converted into key-value pairs and inserted into Amazon DynamoDB (NoSQL);
+
+## Authors
+
+* Astegher Maurizio
+* Videsott Pierluigi

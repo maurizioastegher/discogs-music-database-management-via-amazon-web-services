@@ -34,10 +34,10 @@ public class ArtistsAdapter {
 
 	static AmazonSimpleDBClient simpleDB;
 	static String artistsDomainName = "artists";
-	static String artistsXMLFile = "C:\\Users\\maurizio\\Desktop\\discogs_20150601_artists.xml";
+	static String artistsXMLFile = "";
 
 	static boolean debugArtists = false;
-	static String artistsS3File = "C:\\Users\\maurizio\\Desktop\\artistsS3.txt";
+	static String artistsS3File = "";
 	static Writer bw;
 
 	private static Collection<ReplaceableItem> writeRequestList = new ArrayList<ReplaceableItem>();
@@ -46,11 +46,11 @@ public class ArtistsAdapter {
 	private static void init() throws Exception {
 		AWSCredentials credentials = null;
 		try {
-			credentials = new ProfileCredentialsProvider("Mauri").getCredentials();
+			credentials = new ProfileCredentialsProvider("").getCredentials();
 		} catch (Exception e) {
 			throw new AmazonClientException("Cannot load the credentials from the credential profiles file. "
 					+ "Please make sure that your credentials file is at the correct "
-					+ "location (C:\\Users\\Mauri\\.aws\\credentials), and is in valid format.", e);
+					+ "location (), and is in valid format.", e);
 		}
 		simpleDB = new AmazonSimpleDBClient(credentials);
 		Region usWest2 = Region.getRegion(Regions.US_WEST_2);
